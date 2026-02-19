@@ -1,129 +1,78 @@
-Your_Seville_Tour_Guide 🌍
-
-Your_Seville_Tour_Guide es una aplicación móvil desarrollada para el módulo de Desarrollo de Interfaces (2º C.F.G.S. DAM). Se trata de una guía turística inteligente que combina mapas interactivos, asistencia por inteligencia artificial y herramientas multimedia para explorar Sevilla.
-+1
-
-🛠️ Stack Tecnológico
-
-Frontend: React Native con Expo.
-+1
-
-
-Backend & Auth: Supabase.
-+1
-
-
-IA/NLP: Rasa Open Source.
-+1
-
-
-Multimedia: Expo Speech, Expo Print y Expo Sharing.
-+2
-
-🚀 Funcionalidades Principales
-🔒 Autenticación y Perfil
-
-Seguridad: Registro y login mediante Supabase Authentication.
-
-
-Gestión de Perfil: Uso de la tabla profiles para el manejo de username e profile_image.
-+1
-
-Servicios: Implementados en authService y profileService dentro de supabase.ts.
-
-🛠️ Gestión de Datos (CRUD)
-
-Control Total: Operaciones CRUD completas en las tablas tours y stops.
-
-
-Sincronización: Los cambios se reflejan inmediatamente en la interfaz de usuario con confirmaciones visuales.
-
-
-Estructura: Soporte para rutas complejas con múltiples paradas y orden de visita (stop_order).
-
-🗺️ Mapa Interactivo
-
-Visualización: Uso de react-native-maps para posicionar monumentos y paradas.
-
-
-Interacción: Marcadores dinámicos alimentados por la base de datos con popups informativos.
-
-🤖 Asistente Virtual e IA
-
-Chatbot Rasa: Integración con un servidor Rasa para responder sobre tours, horarios y consejos turísticos.
-+1
-
-Lógica de Respaldo: El sistema incluye respuestas de fallback locales en caso de que el servidor de IA no esté disponible (FALLBACK_RESPONSES).
-
-Interfaz: Chat interactivo con estados de carga ("Escribiendo...") y scroll automático.
-
-🎙️ Multimedia y Accesibilidad
-
-Text-to-Speech: Lectura en voz de la descripción de paradas y mensajes del chat mediante Expo Speech.
-+1
-
-
-Controles: Funcionalidad de Play, Pause y Stop integrada.
-
-
-Gestión de Imágenes: Subida de archivos en base64 al almacenamiento de Supabase (imageService) con feedback de estado.
-+1
-
-📄 Generación de Informes
-
-Reportes PDF: Creación de documentos profesionales con el nombre del tour y la lista de paradas visitadas.
-+1
-
-
-Compartir: Integración con expo-sharing para distribuir el informe generado.
-+1
-
-📖 Guía de Uso de la Aplicación
-Debido a que este documento sustituye al vídeo demostrativo, se detallan los pasos para evaluar las funcionalidades:
-
-Inicio: Acceda con su cuenta. La app validará los campos y mostrará errores si los datos son incorrectos.
-
-Mapa: Explore Sevilla en el mapa. Pulse los marcadores para ver la información de los monumentos cargada desde Supabase.
-
-Gestión (CRUD):
-
-Cree un nuevo Tour y añádale paradas (Stops) con sus coordenadas.
-
-Suba una imagen de perfil o del tour desde ProfileScreen o EditTourScreen.
-
-Chat e IA: Abra el asistente y pregunte: "¿Qué tours hay disponibles?". Si mantiene presionado un mensaje, la app lo leerá en voz alta.
-
-
-Informe: Desde el detalle de un tour, genere el informe PDF para ver el resumen de la ruta y compártalo.
-+1
-
-🗄️ Esquema de Base de Datos
-
-profiles: Información del usuario vinculada a auth.users.
-
-
-tours: Datos principales de las rutas (título, ciudad, precio, duración).
-
-
-stops: Paradas individuales vinculadas a un tour_id.
-
-
-tour_imagenes: Tabla para la gestión de múltiples fotos por tour.
-
-📂 Estructura del Código
-components/: Elementos UI como ChatAssistant y TourImagePicker.
-
-screens/: Pantallas de navegación (MapScreen, ChatScreen, PDFReportScreen, etc.).
-
-services/: Lógica de conexión con supabase.ts y rasa.ts.
-
-types/: Definiciones de interfaces TypeScript (Tour, Stop, Profile).
-
-🎓 Información Académica
-
-Centro: IES Velázquez.
-
-
-Módulo: Desarrollo de Interfaces.
-
-Curso: 2º C.F.G.S. Desarrollo de Aplicaciones Multiplataforma.
+# Your_Seville_Tour_Guide 🌍
+
+[cite_start]**Your_Seville_Tour_Guide** es una aplicación móvil desarrollada para el módulo de **Desarrollo de Interfaces** (2º C.F.G.S. DAM) en el **IES Velázquez**[cite: 1, 2]. [cite_start]Se trata de una Guía Turística Inteligente de Sevilla que permite explorar monumentos, interactuar con un asistente virtual y generar informes visuales[cite: 6].
+
+## 🛠️ Stack Tecnológico
+* [cite_start]**Frontend**: React Native con Expo[cite: 53].
+* [cite_start]**Backend & Auth**: Supabase[cite: 17].
+* [cite_start]**IA/NLP**: Rasa Open Source[cite: 31].
+* [cite_start]**Multimedia**: Expo Speech, Expo Print y Expo Sharing[cite: 36, 53, 55].
+
+---
+
+## 🚀 Funcionalidades Principales
+
+### 🔒 Autenticación y Perfil
+* [cite_start]**Seguridad**: Registro y login mediante **Supabase Authentication**[cite: 17].
+* **Gestión de Perfil**: Uso de la tabla `profiles` para el manejo de `username` e `profile_image`.
+* [cite_start]**Feedback**: Validaciones visuales ante errores de login o campos vacíos[cite: 18].
+
+### 🛠️ Gestión de Datos (CRUD)
+* [cite_start]**Control Total**: Operaciones de crear, leer, actualizar y eliminar en las tablas `tours` y `stops`[cite: 19, 20].
+* [cite_start]**Sincronización**: Los cambios se reflejan inmediatamente en la interfaz de usuario[cite: 21].
+* **Estructura**: Soporte para rutas complejas con orden de visita (`stop_order`) y geolocalización.
+
+### 🗺️ Mapa Interactivo
+* [cite_start]**Visualización**: Uso de `react-native-maps` para posicionar monumentos y paradas en Sevilla[cite: 23, 24].
+* [cite_start]**Interacción**: Marcadores dinámicos alimentados por la base de datos con popups o tooltips informativos[cite: 26, 27].
+
+### 🤖 Asistente Virtual (Chatbot)
+* [cite_start]**Inteligencia Artificial**: Integración con un servidor **Rasa** para responder dudas sobre tours, horarios y consejos[cite: 31, 34].
+* **Robustez**: El sistema incluye respuestas de *fallback* locales para garantizar la interacción si el servidor de IA no responde.
+* **Accesibilidad**: Opción de reproducir en voz las respuestas del chat manteniendo presionado el mensaje.
+
+### 🎙️ Multimedia y Accesibilidad
+* [cite_start]**Text-to-Speech**: Lectura en voz de la historia de cada parada mediante **Expo Speech**[cite: 36, 43].
+* [cite_start]**Controles**: Interfaz con botones de play, pause y stop para la locución[cite: 44].
+* **Gestión de Imágenes**: Subida de archivos en base64 al almacenamiento de Supabase con feedback de éxito/error.
+
+### 📄 Generación de Informes (Unidad 5)
+* [cite_start]**Reportes PDF**: Creación de informes que incluyen el nombre del tour y la lista de paradas con su descripción[cite: 49, 51, 52].
+* [cite_start]**Distribución**: Integración con el sistema nativo para compartir el documento generado[cite: 55].
+
+---
+
+## 📖 Guía de Uso (Sustitución de Vídeo)
+
+Para evaluar correctamente todas las funcionalidades exigidas, siga este flujo:
+
+1. **Acceso**: Inicie sesión o regístrese. [cite_start]Compruebe que la app impide el acceso con campos vacíos[cite: 18].
+2. [cite_start]**Exploración**: Navegue al mapa y pulse sobre los marcadores para ver los detalles de los monumentos cargados desde la DB[cite: 26].
+3. **Gestión CRUD**:
+   * [cite_start]Cree un tour desde el formulario, edítelo o elimínelo[cite: 20].
+   * Añada paradas turísticas indicando su latitud y longitud.
+4. [cite_start]**Audioguía**: En el detalle de una parada, use los controles de audio para escuchar la descripción histórica[cite: 44].
+5. **Chatbot**: Pregunte al asistente "¿Qué monumentos puedo visitar?". Mantenga presionado el mensaje recibido para activar la lectura por voz.
+6. [cite_start]**Informe**: Genere el PDF del tour y utilice la opción de compartir para finalizar el proceso[cite: 53, 55].
+
+---
+
+## 🗄️ Esquema de Base de Datos
+La aplicación utiliza un modelo relacional en Supabase con las siguientes tablas clave:
+* **`profiles`**: Datos extendidos del usuario vinculados a la autenticación.
+* **`tours`**: Información de las rutas (título, descripción, ciudad, precio).
+* **`stops`**: Puntos de interés específicos vinculados a cada tour.
+* **`tour_imagenes`**: Gestión de múltiples imágenes por ruta.
+
+---
+
+## 📂 Estructura del Proyecto
+* `components/`: Elementos UI reutilizables (`ChatAssistant`, `TourImagePicker`).
+* `screens/`: Pantallas de la aplicación (`MapScreen`, `ChatScreen`, `PDFReportScreen`).
+* `services/`: Lógica de comunicación con APIs externas (`supabase.ts`, `rasa.ts`).
+* `types/`: Definiciones de interfaces TypeScript para asegurar la integridad de datos.
+
+## 🏫 Información Académica
+* [cite_start]**Centro**: IES Velázquez[cite: 2].
+* **Curso**: 2º C.F.G.S. [cite_start]Desarrollo de Aplicaciones Multiplataforma[cite: 1].
+* **Módulo**: Desarrollo de Interfaces.
